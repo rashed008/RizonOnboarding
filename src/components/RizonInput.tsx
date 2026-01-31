@@ -1,6 +1,3 @@
-// Placeholder implementation
-// In production, this comes from the shared design system
-
 import React from "react";
 import { TextInput } from "react-native";
 

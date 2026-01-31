@@ -13,7 +13,7 @@ export const useOnboardingFlow = () => {
       const status: any = await onboardingApi.getOnboardingStatus();
 
       if (status.justOnboarded) {
-        setShowEnjoyingSheet(true); // ✅ FIRST bottom sheet
+        setShowEnjoyingSheet(true);
       }
     };
 
