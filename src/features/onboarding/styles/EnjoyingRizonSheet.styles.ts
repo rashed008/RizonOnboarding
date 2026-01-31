@@ -16,9 +16,9 @@ export const styles = StyleSheet.create({
   },
 
   logoBox: {
-    width: 72,
-    height: 72,
-    borderRadius: 12,
+    width: 80,
+    height: 80,
+    borderRadius: 8,
     backgroundColor: "#FFF200",
     alignItems: "center",
     justifyContent: "center",
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
 
   title: {
     fontSize: 20,
-    fontWeight: "700",
+    fontWeight: "400",
     color: "#000",
     marginBottom: 8,
     textAlign: "center",

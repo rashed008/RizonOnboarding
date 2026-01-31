@@ -3,8 +3,8 @@ import { Linking, Platform } from "react-native";
 export const redirectToStore = () => {
   const url =
     Platform.OS === "ios"
-      ? "https://apps.apple.com/us/app/rizon-stablecoin-finance/id6745082515"
-      : "https://play.google.com/store/apps/details?id=com.rizon.app&hl=en";
+      ? "https://www.apple.com/app-store/"
+      : "https://play.google.com/store/games?hl=en";
 
   Linking.openURL(url);
 };
