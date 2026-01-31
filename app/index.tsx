@@ -1,58 +1,48 @@
-// import { Text, View } from "react-native";
-
-// export default function Index() {
-//   return (
-//     <View
-//       style={{
-//         flex: 1,
-//         justifyContent: "center",
-//         alignItems: "center",
-//       }}
-//     >
-//       <Text>Edit app/index.tsx to edit this screen.</Text>
-//     </View>
-//   );
-// }
-
 import React from "react";
 import { Text, View } from "react-native";
 import { onboardingApi } from "../src/api/onboarding.api";
 import { useOnboardingFlow } from "../src/features/onboarding/hooks/useOnboardingFlow";
 import EnjoyingRizonSheet from "../src/features/onboarding/sheets/EnjoyingRizonSheet";
 import FeedbackSheet from "../src/features/onboarding/sheets/FeedbackSheet";
+import ReviewSheet from "../src/features/onboarding/sheets/ReviewSheet";
+import { redirectToStore } from "../src/utils/storeRedirect";
 
 export default function HomeScreen() {
   const {
     showEnjoyingSheet,
     showFeedbackSheet,
+    showReviewSheet,
     setShowEnjoyingSheet,
     setShowFeedbackSheet,
+    onUserLovesApp,
   } = useOnboardingFlow();
 
   return (
     <View style={{ flex: 1 }}>
-      {/* Normal app content */}
-      <Text>Home Screen</Text>
+      <Text> </Text>
 
-      {/* ✅ FIRST bottom sheet */}
       {showEnjoyingSheet && (
         <EnjoyingRizonSheet
           onNotYet={() => {
             setShowEnjoyingSheet(false);
-            setShowFeedbackSheet(true); // 👉 immediately show feedback sheet
+            setShowFeedbackSheet(true);
           }}
-          onYes={() => {
-            setShowEnjoyingSheet(false);
-          }}
+          onYes={onUserLovesApp}
         />
       )}
 
-      {/* ✅ SECOND bottom sheet (Feedback) */}
       {showFeedbackSheet && (
         <FeedbackSheet
           onSubmit={async (text) => {
             await onboardingApi.submitFeedback(text);
-            setShowFeedbackSheet(false); // close after success
+          }}
+        />
+      )}
+
+      {showReviewSheet && (
+        <ReviewSheet
+          onReviewPress={() => {
+            redirectToStore();
           }}
         />
       )}

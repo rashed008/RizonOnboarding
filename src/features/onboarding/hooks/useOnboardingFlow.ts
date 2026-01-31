@@ -1,5 +1,3 @@
-//
-
 import { useEffect, useState } from "react";
 import { onboardingApi } from "../../../api/onboarding.api";
 
@@ -20,6 +18,13 @@ export const useOnboardingFlow = () => {
     init();
   }, []);
 
+  const onUserLovesApp = async () => {
+    onboardingApi.scheduleReviewPrompt();
+
+    setShowEnjoyingSheet(false);
+    setShowReviewSheet(true);
+  };
+
   return {
     showEnjoyingSheet,
     showFeedbackSheet,
@@ -27,5 +32,6 @@ export const useOnboardingFlow = () => {
     setShowEnjoyingSheet,
     setShowFeedbackSheet,
     setShowReviewSheet,
+    onUserLovesApp,
   };
 };

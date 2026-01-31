@@ -88,10 +88,9 @@ export default function GlobalBottomSheet({ children }: Props) {
   const keyboardOffset = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // slide up on mount
     Animated.timing(translateY, {
       toValue: 0,
-      duration: 260,
+      duration: 180,
       useNativeDriver: true,
     }).start();
 
