@@ -1,50 +1,28 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
 
-1. Install dependencies
+https://github.com/user-attachments/assets/4b3c48ee-d935-4c70-812a-2181482c7694
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Install dependencies
 
-## Get a fresh project
+**npm install**
 
-When you're ready, run:
+Start the app:
 
-```bash
-npm run reset-project
-```
+**npx expo start**
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**Testing Notes**
+* For testing purposes, the Review Bottom Sheet is shown immediately after the user selects “Yes, loving it”.
+* In a production scenario, the review prompt is designed to appear after 2–3 days, based on a backend-controlled eligibility timestamp.
+* The production-ready logic for delayed display is already implemented and can be enabled by relying on the stored **reviewPromptEligibleAt** value instead of showing the sheet immediately.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Notes**
+* All backend interactions are mocked to simulate real API behavior.
+* Review prompt timing is controlled via a future timestamp for production-ready logic.
+* Existing UI components were reused as instructed.
