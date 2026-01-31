@@ -1,3 +1,5 @@
+//
+
 import { useEffect, useState } from "react";
 import { onboardingApi } from "../../../api/onboarding.api";
 
@@ -9,35 +11,21 @@ export const useOnboardingFlow = () => {
   useEffect(() => {
     const init = async () => {
       const status: any = await onboardingApi.getOnboardingStatus();
+
       if (status.justOnboarded) {
-        setShowEnjoyingSheet(true);
+        setShowEnjoyingSheet(true); // ✅ FIRST bottom sheet
       }
     };
 
     init();
   }, []);
 
-  const onNotYet = () => {
-    setShowEnjoyingSheet(false);
-    setShowFeedbackSheet(true);
-  };
-
-  const onYesLovingIt = async () => {
-    setShowEnjoyingSheet(false);
-    await onboardingApi.scheduleReviewPrompt();
-  };
-
-  const onFeedbackSubmit = async (text: string) => {
-    await onboardingApi.submitFeedback(text); // wait → NO race condition
-    setShowFeedbackSheet(false);
-  };
-
   return {
     showEnjoyingSheet,
     showFeedbackSheet,
     showReviewSheet,
-    onNotYet,
-    onYesLovingIt,
-    onFeedbackSubmit,
+    setShowEnjoyingSheet,
+    setShowFeedbackSheet,
+    setShowReviewSheet,
   };
 };

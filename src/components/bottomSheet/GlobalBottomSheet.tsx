@@ -1,21 +1,36 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
+
+const { height } = Dimensions.get("window");
 
 type Props = {
   children: React.ReactNode;
 };
 
-const GlobalBottomSheet = ({ children }: Props) => {
-  return <View style={styles.container}>{children}</View>;
-};
+export default function GlobalBottomSheet({ children }: Props) {
+  return (
+    <View style={styles.overlay}>
+      <View style={styles.sheet}>{children}</View>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    backgroundColor: "#fff",
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "flex-end",
+    backgroundColor: "rgba(0,0,0,0.3)",
+  },
+  sheet: {
+    backgroundColor: "#FFF",
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+    paddingTop: 12,
+    paddingBottom: 24,
+    minHeight: height * 0.35,
   },
 });
-
-export default GlobalBottomSheet;
